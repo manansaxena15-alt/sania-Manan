@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Sania ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  color: white;
+  text-align: center;
+}
+
+.hidden { display: none; }
+
+.container { padding: 20px; }
+
+h1 { font-size: 2.2em; }
+
+#typing {
+  font-size: 1.1em;
+  max-width: 600px;
+  margin: 20px auto;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+.slider {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 20px auto;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  box-shadow: 0 0 25px rgba(255,255,255,0.6);
+}
+
+.active { opacity: 1; }
+
+.buttons { margin-top: 25px; }
+
+button {
+  background: white;
+  color: #ff416c;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1em;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+#noBtn { position: relative; }
+
+.countdown { margin-top: 10px; }
+
+.heart {
+  position: fixed;
+  top: -10px;
+  font-size: 24px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD SCREEN -->
+<div id="lock" class="container">
+  <h1>🔒 Private Love Page</h1>
+  <p>Only for Sania ❤️</p>
+  <input id="pass" type="password" placeholder="Enter password"
+  style="padding:10px;border-radius:20px;border:none;">
+  <br><br>
+  <button onclick="unlock()">Unlock 💕</button>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="content" class="hidden">
+
+<audio autoplay loop>
+  <source src="https://pagalsong.in/uploads/systemuploads/mp3/Raabta/Raabta.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+<h1>Happy Valentine’s Day, Sania ❤️</h1>
+
+<div class="countdown" id="countdown"></div>
+
+<div class="slider">
+  <img class="slide active" src="https://i.ibb.co/bjxkx7dK/IMG-20250419-WA0005.jpg">
+  <img class="slide" src="https://i.ibb.co/1tr59wvP/IMG-20250621-154558.jpg">
+  <img class="slide" src="https://i.ibb.co/VWJfL2xB/IMG-20250225-135820.jpg">
+</div>
+
+<div id="typing"></div>
+
+<div class="buttons">
+  <button onclick="yesClicked()">YES 💖</button>
+  <button id="noBtn" onmouseover="moveNo()">NO 🙈</button>
+</div>
+
+</div>
+</div>
+
+<script>
+// PASSWORD
+function unlock() {
+  if (document.getElementById("pass").value === "sania❤️manan") {
+    document.getElementById("lock").style.display = "none";
+    document.getElementById("content").classList.remove("hidden");
+  } else {
+    alert("Wrong password 😜");
+  }
+}
+
+// TYPING LOVE LETTER
+const text = `Sania ❤️
+
+"तुम्हारी मुस्कान मेरी सबसे बड़ी खुशी है।"
+
+You are my favorite thought,
+my safest place,
+and the most beautiful part of my life.
+
+Chahe duniya kuch bhi kahe,
+mera dil sirf tumhara hi rahega.
+
+— Manan 💕`;
+
+let i = 0;
+function typingEffect() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typingEffect, 45);
+  }
+}
+typingEffect();
+
+// SLIDER
+let slides = document.querySelectorAll(".slide");
+let current = 0;
+setInterval(() => {
+  slides[current].classList.remove("active");
+  current = (current + 1) % slides.length;
+  slides[current].classList.add("active");
+}, 2500);
+
+// YES BUTTON
+function yesClicked() {
+  alert("YAYYYY 🎉❤️\n\nSania just made Manan the luckiest guy alive!\n\nHappy Valentine’s Day 💕");
+}
+
+// NO BUTTON RUNS
+function moveNo() {
+  const btn = document.getElementById("noBtn");
+  btn.style.position = "absolute";
+  btn.style.left = Math.random() * 70 + "vw";
+  btn.style.top = Math.random() * 70 + "vh";
+}
+
+// COUNTDOWN
+const vDay = new Date("Feb 14, 2026 00:00:00").getTime();
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = vDay - now;
+  if (diff > 0) {
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    document.getElementById("countdown").innerHTML =
+      `Valentine in ${d} days 💘`;
+  } else {
+    document.getElementById("countdown").innerHTML =
+      "It’s Valentine’s Day 💖";
+  }
+}, 1000);
+
+// FALLING HEARTS
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}, 300);
+</script>
+
+</body>
+</html>
