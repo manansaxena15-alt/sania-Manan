@@ -2,116 +2,135 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For Sania ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Sania ❤️</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #ff416c, #ff4b2b);
-  color: white;
-  text-align: center;
-  overflow-x: hidden;
+body{
+  margin:0;
+  font-family:Segoe UI, sans-serif;
+  background:linear-gradient(135deg,#ff416c,#ff4b2b);
+  color:white;
+  text-align:center;
+  overflow-x:hidden;
 }
 
-.hidden { display: none; }
-
-.container { padding: 20px; }
-
-h1 { font-size: 2em; margin-top: 10px; }
-
-.highlight {
-  font-size: 1.2em;
-  background: rgba(255,255,255,0.2);
-  padding: 15px;
-  border-radius: 15px;
-  margin: 20px auto;
-  max-width: 600px;
+.container{
+  padding:20px;
 }
 
-/* SLIDER FIXED CENTER */
-.slider {
-  position: relative;
-  width: 90%;
-  max-width: 350px;
-  height: 300px;
-  margin: 20px auto;
-  background: rgba(255,255,255,0.15);
-  border-radius: 20px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.hidden{
+  display:none;
 }
 
-.slide {
-  position: absolute;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+/* PASSWORD PAGE */
+#lock{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 }
 
-.active { opacity: 1; }
-
-#typing {
-  max-width: 600px;
-  margin: 20px auto;
-  line-height: 1.8;
-  white-space: pre-line;
+input{
+  padding:10px 15px;
+  border-radius:20px;
+  border:none;
+  outline:none;
+  margin-top:10px;
 }
 
-.question {
-  font-size: 1.5em;
-  margin-top: 25px;
-  font-weight: bold;
+button{
+  background:white;
+  color:#ff416c;
+  border:none;
+  padding:10px 20px;
+  border-radius:25px;
+  margin:10px;
+  cursor:pointer;
+  transition:0.3s;
 }
 
-button {
-  background: white;
-  color: #ff416c;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 25px;
-  font-size: 1em;
-  margin: 10px;
-  cursor: pointer;
-  transition: 0.3s;
+button:hover{
+  transform:scale(1.1);
 }
 
-button:hover { transform: scale(1.1); }
-
-#noBtn { position: relative; }
-
-.section {
-  margin-top: 40px;
-  padding: 20px;
+/* SLIDER */
+.slider{
+  width:90%;
+  max-width:350px;
+  height:300px;
+  margin:20px auto;
+  border-radius:20px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,0.15);
 }
 
-.heart {
-  position: fixed;
-  top: -10px;
-  font-size: 22px;
-  animation: fall linear infinite;
+.slide{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:none;
 }
 
-@keyframes fall {
-  to { transform: translateY(110vh); }
+.slide.active{
+  display:block;
+}
+
+/* TEXT */
+.highlight{
+  background:rgba(255,255,255,0.2);
+  padding:15px;
+  border-radius:15px;
+  max-width:600px;
+  margin:20px auto;
+}
+
+#typing{
+  max-width:600px;
+  margin:20px auto;
+  line-height:1.8;
+  white-space:pre-line;
+}
+
+.question{
+  font-size:1.4em;
+  margin-top:20px;
+  font-weight:bold;
+}
+
+.section{
+  margin-top:40px;
+}
+
+/* HEARTS */
+.heart{
+  position:fixed;
+  top:-10px;
+  font-size:22px;
+  animation:fall linear infinite;
+}
+
+@keyframes fall{
+  to{ transform:translateY(110vh); }
+}
+
+#noBtn{
+  position:relative;
 }
 </style>
 </head>
 
 <body>
 
-<!-- PASSWORD SCREEN -->
-<div id="lock" class="container">
+<!-- PASSWORD PAGE -->
+<div id="lock">
   <h1>🔒 Private Love Page</h1>
   <p>Only for Sania ❤️</p>
-  <input id="pass" type="password" placeholder="Enter password"
-  style="padding:10px;border-radius:20px;border:none;">
-  <br><br>
+  <input type="password" id="pass" placeholder="Enter password">
   <button onclick="unlock()">Unlock 💕</button>
 </div>
 
@@ -129,49 +148,43 @@ button:hover { transform: scale(1.1); }
 </div>
 
 <div class="highlight">
-  "तुम्हारी मुस्कान मेरी सबसे बड़ी खुशी है।" 💖
+"तुम्हारी मुस्कान मेरी सबसे बड़ी खुशी है।" 💖
 </div>
 
 <div id="typing"></div>
 
 <div class="question">
-  Will you be my Valentine, Sania? 💍❤️
+Will you be my Valentine, Sania? 💍❤️
 </div>
 
 <button onclick="yesClicked()">YES 💖</button>
 <button id="noBtn" onmouseover="moveNo()">NO 🙈</button>
 
 <div class="section">
-  <h2>Why I Love You 💘</h2>
-  <p>• Your smile heals my worst days.</p>
-  <p>• Your voice feels like home.</p>
-  <p>• With you, everything feels right.</p>
-  <p>• You are my peace, my happiness, my forever.</p>
-</div>
-
-<div class="section">
-  <h2>Our Love Story 🕰️</h2>
-  <p>✨ The day I met you – my world changed.</p>
-  <p>💬 Our first deep conversation – I knew you were special.</p>
-  <p>❤️ Every single day – I fall more in love.</p>
+<h2>Why I Love You 💘</h2>
+<p>• Your smile heals my worst days.</p>
+<p>• Your voice feels like home.</p>
+<p>• With you, everything feels right.</p>
+<p>• You are my peace, my happiness, my forever.</p>
 </div>
 
 </div>
 </div>
 
 <script>
-// PASSWORD
-function unlock() {
-  if (document.getElementById("pass").value === "sania❤️manan") {
-    document.getElementById("lock").style.display = "none";
+
+/* PASSWORD */
+function unlock(){
+  if(document.getElementById("pass").value === "sania123"){
+    document.getElementById("lock").style.display="none";
     document.getElementById("content").classList.remove("hidden");
-  } else {
+  }else{
     alert("Wrong password 😜");
   }
 }
 
-// TYPING TEXT
-const text = `Sania ❤️
+/* TYPING */
+const text=`Sania ❤️
 
 You are not just my girlfriend,
 you are my safe place.
@@ -182,54 +195,53 @@ I see my present and my future.
 Chahe duniya kuch bhi ho,
 mera dil sirf tumhara hi rahega.
 
-I promise to love you,
-respect you,
-and choose you every single day.
+I promise to love you every single day.
 
 — Manan 💕`;
 
-let i = 0;
-function typingEffect() {
-  if (i < text.length) {
-    document.getElementById("typing").innerHTML += text.charAt(i);
+let i=0;
+function typingEffect(){
+  if(i<text.length){
+    document.getElementById("typing").innerHTML+=text.charAt(i);
     i++;
-    setTimeout(typingEffect, 40);
+    setTimeout(typingEffect,40);
   }
 }
 typingEffect();
 
-// SLIDER
-let slides = document.querySelectorAll(".slide");
-let current = 0;
-setInterval(() => {
+/* SLIDER */
+let slides=document.querySelectorAll(".slide");
+let current=0;
+setInterval(()=>{
   slides[current].classList.remove("active");
-  current = (current + 1) % slides.length;
+  current=(current+1)%slides.length;
   slides[current].classList.add("active");
-}, 2500);
+},2500);
 
-// YES BUTTON
-function yesClicked() {
+/* YES BUTTON */
+function yesClicked(){
   alert("She said YESSSS ❤️🎉\n\nBest Valentine Ever!\n\nI love you Sania 💕");
 }
 
-// NO BUTTON MOVE
-function moveNo() {
-  const btn = document.getElementById("noBtn");
-  btn.style.position = "absolute";
-  btn.style.left = Math.random() * 70 + "vw";
-  btn.style.top = Math.random() * 70 + "vh";
+/* NO BUTTON MOVE */
+function moveNo(){
+  const btn=document.getElementById("noBtn");
+  btn.style.position="absolute";
+  btn.style.left=Math.random()*70+"vw";
+  btn.style.top=Math.random()*70+"vh";
 }
 
-// FALLING HEARTS
-setInterval(() => {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "❤️";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+/* HEARTS */
+setInterval(()=>{
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="❤️";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.animationDuration=(Math.random()*3+3)+"s";
   document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 6000);
-}, 300);
+  setTimeout(()=>heart.remove(),6000);
+},300);
+
 </script>
 
 </body>
